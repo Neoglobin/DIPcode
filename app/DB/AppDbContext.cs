@@ -7,8 +7,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 {
     public DbSet<User> User { get; set; }
     
-    public DbSet<Department> Department { get; set; }
-    
     public DbSet<Project> Project { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

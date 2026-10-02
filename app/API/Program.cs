@@ -1,3 +1,6 @@
+using API.Extensions;
+using APPLICATION.Services;
+using CORE.Interfaces;
 using DB;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +12,9 @@ var configuration = builder.Configuration;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
+services.AddApiAuthentication(configuration);
+
+services.AddScoped<IAuthService, AuthService>();
 
 services.AddDbContext<AppDbContext>(options =>
 {
@@ -25,9 +31,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
