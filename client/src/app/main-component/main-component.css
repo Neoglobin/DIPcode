@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.frame {
+  min-height: 100dvh;
+  background-color: #E5EBEE;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
+  align-items: center;
+  box-sizing: border-box;
+  padding-inline: 10px;
+  gap: 20px;
+}
+
+app-navigation {
+  justify-self: start;
+}
+
+app-search {
+  justify-self: center;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+}
+
+app-chat-selector {
+  flex: 431 1 431px;
+  min-width: 0;
+}

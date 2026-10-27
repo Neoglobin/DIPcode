@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 431px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.chat-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-radius: 11px;
+  background: #fff;
+  color: #111;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.actions {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #e94b20;
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: rgb(255 74 0 / 12%);
+  box-shadow: 0 0 8px rgb(255 74 0 / 18%);
+}
+
+.plus {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
