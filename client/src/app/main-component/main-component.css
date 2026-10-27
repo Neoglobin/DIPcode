@@ -22,3 +22,7 @@ app-navigation {
 app-search {
   justify-self: center;
 }
+
+app-chat-selector {
+  justify-self: start;
+}
