@@ -12,6 +12,8 @@
   display: grid;
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   align-items: center;
+  box-sizing: border-box;
+  padding-inline: 10px;
   gap: 20px;
 }
 
