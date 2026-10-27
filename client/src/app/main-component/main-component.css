@@ -9,8 +9,16 @@
 }
 
 .toolbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 526fr) minmax(0, 850fr) minmax(0, 526fr);
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
+}
+
+app-navigation {
+  justify-self: start;
+}
+
+app-search {
+  justify-self: center;
 }
