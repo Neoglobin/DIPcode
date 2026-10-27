@@ -1,18 +1,23 @@
 :host {
   display: block;
+  width: 526px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 30px 24px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 18px 20px 16px 10px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 11px;
 }
 
 .menu-button,
@@ -27,13 +32,13 @@
 }
 
 .menu-button {
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
 }
 
 .menu-button svg {
-  width: 32px;
-  height: 24px;
+  width: 22px;
+  height: 17px;
   fill: none;
   stroke: currentColor;
   stroke-width: 3.5;
@@ -42,31 +47,31 @@
 
 .logo {
   display: grid;
-  width: 150px;
-  height: 49px;
+  width: 99px;
+  height: 32px;
   place-items: center;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #ff4a00;
   color: #fff;
   font-family: Arial, sans-serif;
-  font-size: 21px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .arrows {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
 }
 
 .arrow-button {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .arrow-button svg {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.8;
