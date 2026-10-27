@@ -1,0 +1,75 @@
+:host {
+  display: block;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 30px 24px 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.menu-button,
+.arrow-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #17191a;
+  cursor: default;
+}
+
+.menu-button {
+  width: 32px;
+  height: 32px;
+}
+
+.menu-button svg {
+  width: 32px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.logo {
+  display: grid;
+  width: 150px;
+  height: 49px;
+  place-items: center;
+  border-radius: 15px;
+  background: #ff4a00;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.arrow-button {
+  width: 30px;
+  height: 30px;
+}
+
+.arrow-button svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
