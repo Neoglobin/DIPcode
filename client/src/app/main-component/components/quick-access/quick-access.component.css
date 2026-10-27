@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  width: 104px;
+  max-width: 104px;
+  flex: 104 1 104px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.quick-access {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+button {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  color: #e94b20;
+  cursor: pointer;
+  transition: color 180ms ease, filter 180ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  color: #ff4a00;
+  filter: drop-shadow(0 0 5px rgb(255 74 0 / 40%));
+}
+
+svg {
+  width: 50%;
+  height: 50%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

@@ -1,8 +1,8 @@
 :host {
   display: block;
-  width: 81.94%;
+  width: 100%;
   max-width: 431px;
-  justify-self: end;
+  min-width: 0;
   box-sizing: border-box;
 }
 

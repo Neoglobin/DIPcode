@@ -10,7 +10,7 @@
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(0, 526fr) minmax(0, 850fr) minmax(0, 526fr);
+  grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   align-items: center;
   gap: 20px;
 }
@@ -23,6 +23,15 @@ app-search {
   justify-self: center;
 }
 
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+}
+
 app-chat-selector {
-  justify-self: start;
+  flex: 431 1 431px;
+  min-width: 0;
 }
