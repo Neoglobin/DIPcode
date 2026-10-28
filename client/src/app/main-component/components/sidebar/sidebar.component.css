@@ -12,11 +12,13 @@
   overflow: hidden;
   border-radius: 0 12px 0 0;
   background: #fff;
-  transition: width 260ms ease;
+  transition: transform 260ms ease, opacity 180ms ease;
 }
 
 .sidebar.is-collapsed {
-  width: 94px;
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .entry:first-child {
@@ -34,10 +36,6 @@
 
 .entry:hover {
   background: #E5EBEE;
-}
-
-.sidebar.is-collapsed .entry span {
-  display: none;
 }
 
 .entry {
