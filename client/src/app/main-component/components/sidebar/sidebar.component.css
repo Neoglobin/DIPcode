@@ -35,7 +35,6 @@
   transition: background-color 160ms ease;
 }
 
-.entry:hover,
 .entry.is-selected {
   background: #E5EBEE;
 }
