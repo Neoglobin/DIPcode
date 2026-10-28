@@ -1,0 +1,23 @@
+<section class="central-panel">
+  <div class="panel-actions">
+    <button class="action-button" type="button">Добавить</button>
+    <button class="action-button" type="button">Действия</button>
+  </div>
+
+  @if (page === 'applications') {
+    <div class="application-grid">
+      @for (application of applications; track application.id) {
+        <article class="application-card">
+          <div class="application-icon">
+            <svg viewBox="0 0 40 40" aria-hidden="true">
+              <path d="m20 4 13 7.5v17L20 36 7 28.5v-17L20 4Z" />
+              <path d="m7.5 11.5 12.5 7 12.5-7M20 19v16" />
+              <path d="m13.5 8 13 7.5" />
+            </svg>
+          </div>
+          <span class="application-name">{{ application.name }}</span>
+        </article>
+      }
+    </div>
+  }
+</section>

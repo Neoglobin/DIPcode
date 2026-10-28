@@ -26,9 +26,18 @@
   min-width: 0;
 }
 
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 559fr) minmax(0, 1409fr);
+  gap: 20px;
+  padding-right: 10px;
+}
+
 app-navigation,
-app-sidebar {
+app-sidebar,
+app-central-panel {
   width: 100%;
+  min-width: 0;
 }
 
 app-search {

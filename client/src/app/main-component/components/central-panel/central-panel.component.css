@@ -1,0 +1,79 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.central-panel {
+  box-sizing: border-box;
+  height: calc(100dvh - 72px);
+  margin-top: 20px;
+  overflow-y: auto;
+  padding: 22px 16px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.action-button {
+  min-width: 94px;
+  height: 30px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #f0440a;
+  color: #fff;
+  font: 12px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: #d93d08;
+}
+
+.application-grid {
+  display: grid;
+  max-width: 766px;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  column-gap: 18px;
+  row-gap: 40px;
+}
+
+.application-card {
+  min-width: 0;
+  text-align: center;
+}
+
+.application-icon {
+  display: grid;
+  width: 94px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 8px;
+  place-items: center;
+  border-radius: 20px;
+  background: #e9edef;
+}
+
+.application-icon svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #17191a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.8;
+}
+
+.application-name {
+  display: block;
+  overflow: hidden;
+  color: #111;
+  font: 700 12px Arial, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

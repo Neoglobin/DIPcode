@@ -8,7 +8,7 @@
 .sidebar {
   box-sizing: border-box;
   width: 100%;
-  height: calc(100dvh - 66px);
+  height: calc(100dvh - 72px);
   margin-top: 20px;
   overflow: hidden;
   border-radius: 0 12px 0 0;
@@ -35,8 +35,15 @@
   transition: background-color 160ms ease;
 }
 
-.entry:hover {
+.entry:hover,
+.entry.is-selected {
   background: #E5EBEE;
+}
+
+.entry {
+  border: 0;
+  text-align: left;
+  cursor: pointer;
 }
 
 .entry {

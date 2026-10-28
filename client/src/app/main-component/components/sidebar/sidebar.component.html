@@ -1,13 +1,25 @@
 <nav class="sidebar" [class.is-collapsed]="collapsed" [attr.aria-hidden]="collapsed">
-  <div class="entry">
+  <button
+    class="entry"
+    type="button"
+    [class.is-selected]="selectedPage === 'applications'"
+    [attr.aria-current]="selectedPage === 'applications' ? 'page' : null"
+    (click)="pageSelected.emit('applications')"
+  >
     <svg class="gitlab-icon" viewBox="0 0 40 40" aria-hidden="true">
       <path d="M6 17 10 5l5 11h10l5-11 4 12-14 12L6 17Z" />
       <path d="m15 16 5 13 5-13" />
     </svg>
     <span>Управление приложениями GitLab</span>
-  </div>
+  </button>
 
-  <div class="entry">
+  <button
+    class="entry"
+    type="button"
+    [class.is-selected]="selectedPage === 'projects'"
+    [attr.aria-current]="selectedPage === 'projects' ? 'page' : null"
+    (click)="pageSelected.emit('projects')"
+  >
     <svg class="projects-icon" viewBox="0 0 40 40" aria-hidden="true">
       <path d="M15 8v10m0 0c0 7-4 10-8 10m8-10c0 7 5 10 11 10" />
       <circle cx="15" cy="6" r="4" />
@@ -15,5 +27,5 @@
       <circle cx="29" cy="29" r="4" />
     </svg>
     <span>Управление проектами GitLab</span>
-  </div>
+  </button>
 </nav>
