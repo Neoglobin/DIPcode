@@ -14,13 +14,16 @@
 }
 
 .panel-actions {
-  display: flex;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  column-gap: 18px;
   margin-bottom: 36px;
 }
 
 .action-button {
+  width: 94px;
   min-width: 94px;
+  justify-self: center;
   height: 30px;
   padding: 0 16px;
   border: 0;

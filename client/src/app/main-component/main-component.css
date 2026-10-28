@@ -44,8 +44,8 @@
 }
 
 .workspace.sidebar-collapsed app-central-panel {
-  width: 165.7647%;
-  transform: translateX(-39.6735%);
+  width: calc(165.7647% + 10px);
+  transform: translateX(calc(-39.6735% - 10px));
 }
 
 app-navigation,
