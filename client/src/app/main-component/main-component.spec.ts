@@ -26,11 +26,13 @@ describe('MainComponent', () => {
     menuButton.click();
     fixture.detectChanges();
     expect(compiled.querySelector('.sidebar')?.classList.contains('is-collapsed')).toBe(true);
+    expect(compiled.querySelector('.workspace')?.classList.contains('sidebar-collapsed')).toBe(true);
     expect(compiled.querySelector('app-sidebar')).toBeTruthy();
     expect(compiled.querySelector('app-central-panel')).toBeTruthy();
 
     menuButton.click();
     fixture.detectChanges();
     expect(compiled.querySelector('.sidebar')?.classList.contains('is-collapsed')).toBe(false);
+    expect(compiled.querySelector('.workspace')?.classList.contains('sidebar-collapsed')).toBe(false);
   });
 });

@@ -31,6 +31,11 @@
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   gap: 20px;
   padding-right: 10px;
+  transition: grid-template-columns 260ms ease;
+}
+
+.workspace.sidebar-collapsed {
+  grid-template-columns: minmax(0, 559fr) minmax(0, 1409fr) minmax(0, 0fr);
 }
 
 .workspace app-sidebar {

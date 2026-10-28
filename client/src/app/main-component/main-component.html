@@ -9,7 +9,7 @@
       <app-quick-access />
     </div>
   </div>
-  <div class="workspace">
+  <div class="workspace" [class.sidebar-collapsed]="sidebarCollapsed">
     <app-sidebar
       [collapsed]="sidebarCollapsed"
       [selectedPage]="selectedPage"
