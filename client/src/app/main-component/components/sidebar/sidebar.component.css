@@ -12,13 +12,28 @@
   overflow: hidden;
   border-radius: 0 12px 0 0;
   background: #fff;
-  transition: transform 260ms ease, opacity 180ms ease;
+  transition: width 260ms ease;
 }
 
 .sidebar.is-collapsed {
-  transform: translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
+  width: 74px;
+}
+
+.entry:first-child {
+  margin-top: 20px;
+}
+
+.entry {
+  white-space: nowrap;
+  transition: background-color 160ms ease;
+}
+
+.entry:hover {
+  background: #E5EBEE;
+}
+
+.sidebar.is-collapsed .entry span {
+  visibility: hidden;
 }
 
 .entry {
