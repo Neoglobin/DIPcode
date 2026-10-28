@@ -28,9 +28,29 @@
 
 .workspace {
   display: grid;
-  grid-template-columns: minmax(0, 559fr) minmax(0, 1409fr);
+  grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   gap: 20px;
   padding-right: 10px;
+}
+
+.workspace app-sidebar {
+  grid-column: 1;
+}
+
+.workspace app-central-panel {
+  grid-column: 2;
+}
+
+.workspace.sidebar-collapsed {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.workspace.sidebar-collapsed app-sidebar {
+  display: none;
+}
+
+.workspace.sidebar-collapsed app-central-panel {
+  grid-column: 1;
 }
 
 app-navigation,
