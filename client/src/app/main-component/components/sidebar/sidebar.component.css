@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  width: 526px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100dvh - 66px);
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+  background: #fff;
+  transition: height 220ms ease, opacity 180ms ease;
+}
+
+.sidebar.is-collapsed {
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  color: #17191a;
+  font: 700 13px Arial, sans-serif;
+}
+
+.entry svg {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gitlab-icon {
+  stroke-width: 2.5;
+}
+
+.projects-icon {
+  stroke-width: 1.8;
+}

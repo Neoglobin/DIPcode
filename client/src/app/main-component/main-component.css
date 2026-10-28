@@ -11,14 +11,23 @@
 .toolbar {
   display: grid;
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
-  align-items: center;
+  align-items: start;
   box-sizing: border-box;
   padding-inline: 10px;
   gap: 20px;
 }
 
-app-navigation {
-  justify-self: start;
+.left-column {
+  display: flex;
+  flex-direction: column;
+  width: 526px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+app-navigation,
+app-sidebar {
+  width: 100%;
 }
 
 app-search {
