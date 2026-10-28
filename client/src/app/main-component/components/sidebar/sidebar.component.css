@@ -32,9 +32,11 @@
   margin-inline: 20px;
   white-space: nowrap;
   border-radius: 10px;
+  background: transparent;
   transition: background-color 160ms ease;
 }
 
+.entry:hover,
 .entry.is-selected {
   background: #E5EBEE;
 }
