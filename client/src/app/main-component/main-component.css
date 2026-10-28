@@ -5,6 +5,7 @@
 
 .frame {
   min-height: 100dvh;
+  overflow-x: clip;
   background-color: #E5EBEE;
 }
 
@@ -13,7 +14,7 @@
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   align-items: start;
   box-sizing: border-box;
-  padding-inline: 10px;
+  padding: 0 10px 0 0;
   gap: 20px;
 }
 
