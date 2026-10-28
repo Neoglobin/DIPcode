@@ -5,24 +5,35 @@
 
 .frame {
   min-height: 100dvh;
+  overflow-x: clip;
   background-color: #E5EBEE;
 }
 
 .toolbar {
   display: grid;
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
-  align-items: center;
+  align-items: start;
   box-sizing: border-box;
-  padding-inline: 10px;
+  padding: 0 10px 0 0;
   gap: 20px;
 }
 
-app-navigation {
-  justify-self: start;
+.left-column {
+  display: flex;
+  flex-direction: column;
+  width: 526px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+app-navigation,
+app-sidebar {
+  width: 100%;
 }
 
 app-search {
   justify-self: center;
+  margin-top: 17px;
 }
 
 .right-controls {
@@ -31,6 +42,7 @@ app-search {
   gap: 20px;
   width: 100%;
   min-width: 0;
+  margin-top: 13px;
 }
 
 app-chat-selector {
