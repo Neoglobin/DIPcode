@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import type { ContentPage } from '../central-panel/central-panel.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,4 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SidebarComponent {
   @Input() collapsed = false;
+  @Input() selectedPage: ContentPage = 'applications';
+  @Output() pageSelected = new EventEmitter<ContentPage>();
 }

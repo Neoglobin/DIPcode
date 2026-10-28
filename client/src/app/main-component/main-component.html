@@ -2,12 +2,19 @@
   <div class="toolbar">
     <div class="left-column">
       <app-navigation [sidebarCollapsed]="sidebarCollapsed" (menuToggle)="toggleSidebar()" />
-      <app-sidebar [collapsed]="sidebarCollapsed" />
     </div>
     <app-search />
     <div class="right-controls">
       <app-chat-selector />
       <app-quick-access />
     </div>
+  </div>
+  <div class="workspace" [class.sidebar-collapsed]="sidebarCollapsed">
+    <app-sidebar
+      [collapsed]="sidebarCollapsed"
+      [selectedPage]="selectedPage"
+      (pageSelected)="selectPage($event)"
+    />
+    <app-central-panel [page]="selectedPage" />
   </div>
 </main>

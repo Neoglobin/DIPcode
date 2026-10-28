@@ -8,7 +8,8 @@
 .sidebar {
   box-sizing: border-box;
   width: 100%;
-  height: calc(100dvh - 66px);
+  height: calc(100dvh - 72px);
+  margin-top: 20px;
   overflow: hidden;
   border-radius: 0 12px 0 0;
   background: #fff;
@@ -25,17 +26,29 @@
   margin-top: 20px;
 }
 
+.entry + .entry {
+  margin-top: 10px;
+}
+
 .entry {
   width: calc(100% - 40px);
   max-width: 100%;
   margin-inline: 20px;
   white-space: nowrap;
   border-radius: 10px;
+  background: transparent;
   transition: background-color 160ms ease;
 }
 
-.entry:hover {
+.entry:hover,
+.entry.is-selected {
   background: #E5EBEE;
+}
+
+.entry {
+  border: 0;
+  text-align: left;
+  cursor: pointer;
 }
 
 .entry {
