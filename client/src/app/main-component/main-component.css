@@ -21,7 +21,6 @@
 .left-column {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   width: 526px;
   max-width: 100%;
   min-width: 0;
