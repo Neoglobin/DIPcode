@@ -26,6 +26,10 @@
   margin-top: 20px;
 }
 
+.entry + .entry {
+  margin-top: 10px;
+}
+
 .entry {
   width: calc(100% - 40px);
   max-width: 100%;
