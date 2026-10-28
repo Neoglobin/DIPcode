@@ -41,18 +41,6 @@
   grid-column: 2;
 }
 
-.workspace.sidebar-collapsed {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.workspace.sidebar-collapsed app-sidebar {
-  display: none;
-}
-
-.workspace.sidebar-collapsed app-central-panel {
-  grid-column: 1;
-}
-
 app-navigation,
 app-sidebar,
 app-central-panel {
