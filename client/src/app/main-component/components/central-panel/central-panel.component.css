@@ -48,6 +48,12 @@
 .application-card {
   min-width: 0;
   text-align: center;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.application-card:hover {
+  transform: scale(1.04);
 }
 
 .application-icon {
