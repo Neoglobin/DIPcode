@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   gap: 20px;
-  padding-right: 10px;
+  padding-right: 0;
 }
 
 .workspace app-sidebar {
