@@ -31,19 +31,18 @@
   grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
   gap: 20px;
   padding-right: 10px;
-  transition: grid-template-columns 260ms ease;
 }
 
-.workspace.sidebar-collapsed {
-  grid-template-columns: 0 minmax(0, 850fr) minmax(0, 559fr);
+.workspace.sidebar-collapsed app-central-panel {
+  grid-column: 1 / 3;
 }
 
-.workspace.chat-collapsed {
-  grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) 0;
+.workspace.chat-collapsed app-central-panel {
+  grid-column: 2 / 4;
 }
 
-.workspace.sidebar-collapsed.chat-collapsed {
-  grid-template-columns: 0 minmax(0, 1fr) 0;
+.workspace.sidebar-collapsed.chat-collapsed app-central-panel {
+  grid-column: 1 / 4;
 }
 
 .workspace app-sidebar {
