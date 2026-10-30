@@ -1,8 +1,88 @@
 :host {
+  position: relative;
   display: block;
   min-width: 0;
   height: calc(100dvh - 72px);
-  margin-top: 20px;
+  justify-self: end;
+  margin: 20px -10px 0 0;
+  transition: width 220ms ease;
+}
+
+:host(.is-resizing) {
+  transition: none;
+  user-select: none;
+}
+
+.resize-handle {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: -5px;
+  width: 10px;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.resize-handle::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  width: 2px;
+  background: #ff4a00;
+  content: '';
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.resize-handle:hover::after {
+  opacity: 0.7;
+}
+
+.expand-button {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #eef1f2;
+  color: #15191b;
+  cursor: pointer;
+  transition: color 180ms ease, filter 180ms ease;
+}
+
+.expand-button:hover,
+.expand-button:focus-visible {
+  color: #ff4a00;
+  filter: drop-shadow(0 0 4px rgb(255 74 0 / 55%));
+}
+
+.expand-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+:host(.is-collapsed) {
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host,
+  .resize-handle::after {
+    transition: none;
+  }
 }
 
 .chat-panel {
