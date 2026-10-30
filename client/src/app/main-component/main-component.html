@@ -9,13 +9,13 @@
       <app-quick-access />
     </div>
   </div>
-  <div class="workspace" [class.sidebar-collapsed]="sidebarCollapsed" [class.chat-collapsed]="chatCollapsed">
+  <div class="workspace" [class.sidebar-collapsed]="sidebarCollapsed" [class.chat-collapsed]="chatCollapsed" [style.--chat-track-size]="chatTrackSize === null ? null : chatTrackSize + 'px'">
     <app-sidebar
       [collapsed]="sidebarCollapsed"
       [selectedPage]="selectedPage"
       (pageSelected)="selectPage($event)"
     />
     <app-central-panel [page]="selectedPage" />
-    <app-chat-panel (collapsedChange)="chatCollapsed = $event" />
+    <app-chat-panel (collapsedChange)="chatCollapsed = $event" (widthChange)="chatTrackSize = $event" />
   </div>
 </main>

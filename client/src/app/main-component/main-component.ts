@@ -16,6 +16,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 export class MainComponent {
   sidebarCollapsed = false;
   chatCollapsed = false;
+  chatTrackSize: number | null = null;
   selectedPage: ContentPage = 'applications';
 
   selectPage(page: ContentPage): void {

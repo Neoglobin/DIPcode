@@ -12,6 +12,7 @@ export class ChatPanelComponent {
   private lastExpandedWidth: number | null = null;
   private resizing = false;
   @Output() collapsedChange = new EventEmitter<boolean>();
+  @Output() widthChange = new EventEmitter<number>();
   collapsed = false;
 
   @HostBinding('style.width') hostWidth = 'calc(100% + 10px)';
@@ -26,13 +27,18 @@ export class ChatPanelComponent {
     if (this.collapsed) {
       this.collapsed = false;
       this.collapsedChange.emit(false);
+      if (this.lastExpandedWidth !== null) {
+        this.widthChange.emit(this.lastExpandedWidth - 10);
+      }
       this.hostWidth = this.lastExpandedWidth === null
         ? 'calc(100% + 10px)'
         : `${this.lastExpandedWidth}px`;
       return;
     }
 
-    this.lastExpandedWidth = this.host.nativeElement.getBoundingClientRect().width;
+    const expandedWidth = this.host.nativeElement.getBoundingClientRect().width;
+    this.lastExpandedWidth = expandedWidth;
+    this.widthChange.emit(expandedWidth - 10);
     this.collapsed = true;
     this.collapsedChange.emit(true);
     this.hostWidth = '0px';
@@ -67,6 +73,7 @@ export class ChatPanelComponent {
 
     if (nextWidth < 180) {
       this.lastExpandedWidth = this.resizeStartWidth;
+      this.widthChange.emit(this.resizeStartWidth - 10);
       this.collapsed = true;
       this.collapsedChange.emit(true);
       this.resizing = false;
@@ -76,6 +83,7 @@ export class ChatPanelComponent {
 
     this.hostWidth = `${nextWidth}px`;
     this.lastExpandedWidth = nextWidth;
+    this.widthChange.emit(nextWidth - 10);
   }
 
   @HostListener('document:pointerup')

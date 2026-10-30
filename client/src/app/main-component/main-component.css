@@ -28,18 +28,18 @@
 
 .workspace {
   display: grid;
-  grid-template-columns: minmax(0, 559fr) minmax(0, 850fr) minmax(0, 559fr);
+  grid-template-columns: minmax(0, calc(28.4044715% - 11.3617886px)) minmax(0, 1fr) minmax(0, var(--chat-track-size, calc(28.4044715% - 11.3617886px)));
   gap: 20px;
   padding-right: 10px;
   transition: grid-template-columns 260ms ease;
 }
 
 .workspace.sidebar-collapsed {
-  grid-template-columns: 0 minmax(0, 1409fr) minmax(0, 559fr);
+  grid-template-columns: 0 minmax(0, 1fr) minmax(0, var(--chat-track-size, calc(28.4044715% - 11.3617886px)));
 }
 
 .workspace.chat-collapsed {
-  grid-template-columns: minmax(0, 559fr) minmax(0, 1409fr) 0;
+  grid-template-columns: minmax(0, calc(28.4044715% - 11.3617886px)) minmax(0, 1fr) 0;
 }
 
 .workspace.sidebar-collapsed.chat-collapsed {
