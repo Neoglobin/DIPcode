@@ -66,8 +66,8 @@ export class ChatPanelComponent {
 
     const hostRect = this.host.nativeElement.getBoundingClientRect();
     const centralPanel = this.host.nativeElement.parentElement?.querySelector('app-central-panel');
-    const centralRight = centralPanel?.getBoundingClientRect().right ?? hostRect.left;
-    const maxWidth = Math.max(0, hostRect.right - centralRight - 20);
+    const centralLeft = centralPanel?.getBoundingClientRect().left ?? hostRect.left;
+    const maxWidth = Math.max(0, hostRect.right - centralLeft - 20 - 260);
     const nextWidth = Math.min(
       maxWidth,
       Math.max(0, this.resizeStartWidth + this.resizeStartX - event.clientX)
