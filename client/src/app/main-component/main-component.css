@@ -59,18 +59,17 @@
 }
 
 .workspace.sidebar-collapsed app-central-panel {
-  grid-column: 1 / 3;
-  width: auto;
-  margin-left: 10px;
+  width: calc(100% + 10px);
+  margin-left: -10px;
 }
 
 .workspace.chat-collapsed app-central-panel {
-  grid-column: 2 / 4;
+  width: calc(100% + 20px);
 }
 
 .workspace.sidebar-collapsed.chat-collapsed app-central-panel {
-  grid-column: 1 / 4;
-  margin-right: 10px;
+  width: calc(100% + 30px);
+  margin-left: -10px;
 }
 
 .workspace app-chat-panel {
