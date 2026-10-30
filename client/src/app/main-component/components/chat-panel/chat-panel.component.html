@@ -1,0 +1,40 @@
+<section class="chat-panel" aria-label="Панель чата">
+  <div class="chat-header">
+    <button class="collapse-button" type="button" aria-label="Свернуть панель чата">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m8 5 7 7-7 7M14 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="chat-history" aria-label="Сообщения чата">
+    <article class="message message-assistant">
+      <span class="message-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="5" y="6" width="14" height="13" rx="2" />
+          <path d="M9 3v3m6-3v3M9 11h.01M15 11h.01M9 15h6M3 10v5m18-5v5" />
+        </svg>
+      </span>
+      <p>Это пример ответа, сгенерированного LLM</p>
+    </article>
+
+    <article class="message message-user">
+      <span class="message-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M4.5 20v-1.5a5 5 0 0 1 5-5h5a5 5 0 0 1 5 5V20" />
+        </svg>
+      </span>
+      <p>Это пример вопроса, заданного пользователем</p>
+    </article>
+  </div>
+
+  <form class="message-composer" (submit)="$event.preventDefault()">
+    <input type="text" aria-label="Текст сообщения" placeholder="Здесь текст сообщения" />
+    <button type="submit" aria-label="Отправить сообщение">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 19V5m-6 6 6-6 6 6" />
+      </svg>
+    </button>
+  </form>
+</section>

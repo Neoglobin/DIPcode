@@ -39,18 +39,16 @@
 
 .workspace app-central-panel {
   grid-column: 2;
-  transform: translateX(0);
-  transition: transform 260ms ease, width 260ms ease;
 }
 
-.workspace.sidebar-collapsed app-central-panel {
-  width: calc(165.7647% + 10px);
-  transform: translateX(calc(-39.6735% - 10px));
+.workspace app-chat-panel {
+  grid-column: 3;
 }
 
 app-navigation,
 app-sidebar,
-app-central-panel {
+app-central-panel,
+app-chat-panel {
   width: 100%;
   min-width: 0;
 }

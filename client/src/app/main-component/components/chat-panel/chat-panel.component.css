@@ -1,0 +1,153 @@
+:host {
+  display: block;
+  min-width: 0;
+  height: calc(100dvh - 72px);
+  margin-top: 20px;
+}
+
+.chat-panel {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  background: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.chat-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  height: 52px;
+  padding: 0 16px;
+}
+
+.collapse-button,
+.message-composer button {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  color: #15191b;
+  cursor: pointer;
+}
+
+.collapse-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #eef1f2;
+}
+
+.collapse-button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.chat-history {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 38px;
+  overflow-y: auto;
+  padding: 48px 16px 20px;
+  scrollbar-color: #e5e9eb transparent;
+  scrollbar-width: thin;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.message-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 14px;
+  background: #eef1f2;
+}
+
+.message-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #171a1c;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.message p {
+  margin: 0;
+  padding-top: 1px;
+  color: #17191a;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.message-composer {
+  display: flex;
+  min-height: 60px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  margin: 0 20px 16px;
+  padding: 8px 10px 8px 18px;
+  border-radius: 25px;
+  background: #e9edef;
+}
+
+.message-composer input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #17191a;
+  font: 14px Arial, sans-serif;
+  text-align: center;
+}
+
+.message-composer input::placeholder {
+  color: #17191a;
+  opacity: 1;
+}
+
+.message-composer button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.message-composer button svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+@media (max-width: 800px) {
+  .message-composer {
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+}
