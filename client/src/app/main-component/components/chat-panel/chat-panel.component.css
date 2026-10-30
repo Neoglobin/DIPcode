@@ -26,10 +26,11 @@
 
 .resize-handle::after {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: calc(50% - 18px);
   left: 4px;
   width: 2px;
+  height: 36px;
+  border-radius: 2px;
   background: #ff4a00;
   content: '';
   opacity: 0;

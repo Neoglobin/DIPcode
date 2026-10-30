@@ -57,11 +57,18 @@ export class ChatPanelComponent {
     const centralPanel = this.host.nativeElement.parentElement?.querySelector('app-central-panel');
     const centralRight = centralPanel?.getBoundingClientRect().right ?? hostRect.left;
     const maxWidth = Math.max(0, hostRect.right - centralRight - 20);
-    const minWidth = Math.min(260, maxWidth);
     const nextWidth = Math.min(
       maxWidth,
-      Math.max(minWidth, this.resizeStartWidth + this.resizeStartX - event.clientX)
+      Math.max(0, this.resizeStartWidth + this.resizeStartX - event.clientX)
     );
+
+    if (nextWidth < 180) {
+      this.lastExpandedWidth = this.resizeStartWidth;
+      this.collapsed = true;
+      this.resizing = false;
+      this.hostWidth = '0px';
+      return;
+    }
 
     this.hostWidth = `${nextWidth}px`;
     this.lastExpandedWidth = nextWidth;
