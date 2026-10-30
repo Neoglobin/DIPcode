@@ -34,6 +34,15 @@
   border: 0;
   color: #15191b;
   cursor: pointer;
+  transition: color 180ms ease, filter 180ms ease;
+}
+
+.collapse-button:hover,
+.collapse-button:focus-visible,
+.message-composer button:hover,
+.message-composer button:focus-visible {
+  color: #ff4a00;
+  filter: drop-shadow(0 0 4px rgb(255 74 0 / 55%));
 }
 
 .collapse-button {
