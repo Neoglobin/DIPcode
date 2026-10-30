@@ -34,6 +34,10 @@
   transition: grid-template-columns 260ms ease;
 }
 
+.workspace.chat-resizing {
+  transition: none;
+}
+
 .workspace.sidebar-collapsed {
   grid-template-columns: 0 minmax(0, 1fr) minmax(0, var(--chat-track-size, calc(28.4044715% - 11.3617886px)));
 }

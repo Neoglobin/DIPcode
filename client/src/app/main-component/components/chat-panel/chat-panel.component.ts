@@ -13,6 +13,7 @@ export class ChatPanelComponent {
   private resizing = false;
   @Output() collapsedChange = new EventEmitter<boolean>();
   @Output() widthChange = new EventEmitter<number>();
+  @Output() resizingChange = new EventEmitter<boolean>();
   collapsed = false;
 
   @HostBinding('style.width') hostWidth = 'calc(100% + 10px)';
@@ -53,6 +54,7 @@ export class ChatPanelComponent {
     this.resizeStartX = event.clientX;
     this.resizeStartWidth = this.host.nativeElement.getBoundingClientRect().width;
     this.resizing = true;
+    this.resizingChange.emit(true);
     (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
   }
 
@@ -77,6 +79,7 @@ export class ChatPanelComponent {
       this.collapsed = true;
       this.collapsedChange.emit(true);
       this.resizing = false;
+      this.resizingChange.emit(false);
       this.hostWidth = '0px';
       return;
     }
@@ -89,6 +92,9 @@ export class ChatPanelComponent {
   @HostListener('document:pointerup')
   @HostListener('document:pointercancel')
   stopResizing(): void {
-    this.resizing = false;
+    if (this.resizing) {
+      this.resizing = false;
+      this.resizingChange.emit(false);
+    }
   }
 }
