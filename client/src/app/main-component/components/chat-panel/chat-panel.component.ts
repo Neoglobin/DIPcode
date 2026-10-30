@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Output, inject } from '@angular/core';
 
 @Component({
   selector: 'app-chat-panel',
@@ -11,6 +11,7 @@ export class ChatPanelComponent {
   private resizeStartWidth = 0;
   private lastExpandedWidth: number | null = null;
   private resizing = false;
+  @Output() collapsedChange = new EventEmitter<boolean>();
   collapsed = false;
 
   @HostBinding('style.width') hostWidth = 'calc(100% + 10px)';
@@ -24,6 +25,7 @@ export class ChatPanelComponent {
   toggleCollapsed(): void {
     if (this.collapsed) {
       this.collapsed = false;
+      this.collapsedChange.emit(false);
       this.hostWidth = this.lastExpandedWidth === null
         ? 'calc(100% + 10px)'
         : `${this.lastExpandedWidth}px`;
@@ -32,6 +34,7 @@ export class ChatPanelComponent {
 
     this.lastExpandedWidth = this.host.nativeElement.getBoundingClientRect().width;
     this.collapsed = true;
+    this.collapsedChange.emit(true);
     this.hostWidth = '0px';
   }
 
@@ -65,6 +68,7 @@ export class ChatPanelComponent {
     if (nextWidth < 180) {
       this.lastExpandedWidth = this.resizeStartWidth;
       this.collapsed = true;
+      this.collapsedChange.emit(true);
       this.resizing = false;
       this.hostWidth = '0px';
       return;
