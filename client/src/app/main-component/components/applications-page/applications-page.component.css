@@ -1,0 +1,186 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.panel-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  column-gap: 18px;
+  margin-bottom: 36px;
+}
+
+.action-button {
+  width: 94px;
+  min-width: 94px;
+  justify-self: center;
+  height: 30px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #f0440a;
+  color: #fff;
+  font: 12px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: #d93d08;
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  column-gap: 18px;
+  row-gap: 40px;
+}
+
+.application-card {
+  min-width: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.application-card:hover {
+  transform: scale(1.04);
+}
+
+.application-icon {
+  display: grid;
+  width: 94px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 8px;
+  place-items: center;
+  border-radius: 20px;
+  background: #e9edef;
+}
+
+.application-icon svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #17191a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.8;
+}
+
+.application-name {
+  display: block;
+  overflow: hidden;
+  color: #111;
+  font: 700 12px Arial, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.application-form {
+  width: min(376px, 100%);
+  margin: 17px auto 0;
+  color: #111;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.application-form h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.application-form form {
+  display: grid;
+  gap: 18px;
+  margin-top: 51px;
+}
+
+.form-field {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 9px 0 14px;
+  border-radius: 18px;
+  background: #e9edef;
+}
+
+.form-field input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #202326;
+  font: 10px Arial, sans-serif;
+  text-align: center;
+}
+
+.form-field input::placeholder {
+  color: #62676b;
+  opacity: 1;
+}
+
+.info-icon {
+  display: grid;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  place-items: center;
+  border: 1px solid #778087;
+  border-radius: 50%;
+  color: #626a70;
+  font: 700 9px Arial, sans-serif;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1px;
+}
+
+.save-button,
+.cancel-button {
+  width: 94px;
+  height: 31px;
+  border: 0;
+  border-radius: 12px;
+  font: 10px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.save-button {
+  background: #f0440a;
+  color: #fff;
+}
+
+.save-button:hover {
+  background: #d93d08;
+}
+
+.cancel-button {
+  background: #e9edef;
+  color: #666b6f;
+}
+
+.cancel-button:hover {
+  background: #dfe4e7;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .application-form {
+    margin-top: 10px;
+  }
+}

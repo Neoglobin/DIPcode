@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import type { ContentPage } from '../central-panel/central-panel.component';
+import type { ContentPage } from '../../content-page';
 
 @Component({
   selector: 'app-sidebar',

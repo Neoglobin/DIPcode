@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ChatSelectorComponent } from './components/chat-selector/chat-selector.component';
 import { ChatPanelComponent } from './components/chat-panel/chat-panel.component';
-import { CentralPanelComponent, type ContentPage } from './components/central-panel/central-panel.component';
+import { ApplicationsPageComponent } from './components/applications-page/applications-page.component';
+import { CentralPanelComponent } from './components/central-panel/central-panel.component';
+import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
+import type { ContentPage } from './content-page';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { QuickAccessComponent } from './components/quick-access/quick-access.component';
 import { SearchComponent } from './components/search/search.component';
@@ -9,7 +12,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main-component',
-  imports: [ChatSelectorComponent, ChatPanelComponent, CentralPanelComponent, NavigationComponent, QuickAccessComponent, SearchComponent, SidebarComponent],
+  imports: [ApplicationsPageComponent, ChatSelectorComponent, ChatPanelComponent, CentralPanelComponent, NavigationComponent, ProjectsPageComponent, QuickAccessComponent, SearchComponent, SidebarComponent],
   templateUrl: './main-component.html',
   styleUrl: './main-component.css'
 })

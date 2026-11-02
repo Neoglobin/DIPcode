@@ -15,7 +15,16 @@
       [selectedPage]="selectedPage"
       (pageSelected)="selectPage($event)"
     />
-    <app-central-panel [page]="selectedPage" />
+    <app-central-panel>
+      @switch (selectedPage) {
+        @case ('applications') {
+          <app-applications-page />
+        }
+        @case ('projects') {
+          <app-projects-page />
+        }
+      }
+    </app-central-panel>
     <app-chat-panel (collapsedChange)="chatCollapsed = $event" (widthChange)="chatTrackSize = $event" (resizingChange)="chatResizing = $event" />
   </div>
 </main>
