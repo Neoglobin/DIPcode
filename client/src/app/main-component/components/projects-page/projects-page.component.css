@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.panel-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  column-gap: 18px;
+  margin-bottom: 36px;
+}
+
+.action-button {
+  width: 94px;
+  min-width: 94px;
+  justify-self: center;
+  height: 30px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #f0440a;
+  color: #fff;
+  font: 12px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: #d93d08;
+}
