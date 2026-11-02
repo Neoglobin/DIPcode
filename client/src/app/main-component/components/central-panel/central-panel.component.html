@@ -1,11 +1,32 @@
 <section class="central-panel">
-  <div class="panel-actions">
-    <button class="action-button" type="button">Добавить</button>
-    <button class="action-button" type="button">Действия</button>
-  </div>
+  @if (isAddingApplication) {
+    <section class="application-form" aria-labelledby="application-form-title">
+      <h1 id="application-form-title">Добавить новое приложение GitLab</h1>
+      <form (submit)="saveApplication($event, applicationId.value)">
+        <label class="form-field">
+          <span class="visually-hidden">Application ID</span>
+          <input #applicationId name="applicationId" type="text" placeholder="Application ID" required />
+          <span class="info-icon" aria-hidden="true">i</span>
+        </label>
+        <label class="form-field">
+          <span class="visually-hidden">Secret</span>
+          <input name="secret" type="password" placeholder="Secret" required />
+          <span class="info-icon" aria-hidden="true">i</span>
+        </label>
+        <div class="form-actions">
+          <button class="save-button" type="submit">Сохранить</button>
+          <button class="cancel-button" type="button" (click)="cancelApplicationForm()">Отмена</button>
+        </div>
+      </form>
+    </section>
+  } @else {
+    <div class="panel-actions">
+      <button class="action-button" type="button" (click)="openApplicationForm()">Добавить</button>
+      <button class="action-button" type="button">Действия</button>
+    </div>
 
-  @if (page === 'applications') {
-    <div class="application-grid">
+    @if (page === 'applications') {
+      <div class="application-grid">
       @for (application of applications; track application.id) {
         <article class="application-card">
           <div class="application-icon">
@@ -17,7 +38,8 @@
           </div>
           <span class="application-name">{{ application.name }}</span>
         </article>
-      }
-    </div>
+        }
+      </div>
+    }
   }
 </section>

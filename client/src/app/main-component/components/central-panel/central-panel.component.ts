@@ -15,6 +15,8 @@ interface ApplicationItem {
 export class CentralPanelComponent {
   @Input() page: ContentPage = 'applications';
 
+  isAddingApplication = false;
+
   readonly applications: ApplicationItem[] = [
     { id: 1, name: 'BPMSoft' },
     { id: 2, name: 'WSS Docs' },
@@ -31,4 +33,18 @@ export class CentralPanelComponent {
     { id: 13, name: 'New application' },
     { id: 14, name: 'New application' }
   ];
+
+  openApplicationForm(): void {
+    this.isAddingApplication = true;
+  }
+
+  cancelApplicationForm(): void {
+    this.isAddingApplication = false;
+  }
+
+  saveApplication(event: SubmitEvent, applicationId: string): void {
+    event.preventDefault();
+    this.applications.push({ id: this.applications.length + 1, name: applicationId });
+    this.isAddingApplication = false;
+  }
 }
