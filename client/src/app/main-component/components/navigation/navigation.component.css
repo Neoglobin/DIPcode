@@ -69,6 +69,24 @@
   font-weight: 700;
 }
 
+.session-app {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: auto;
+  margin-right: 20px;
+  color: #717a7e;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.session-app strong {
+  color: #17191a;
+  font-size: 12px;
+}
+
 .arrows {
   display: flex;
   align-items: center;

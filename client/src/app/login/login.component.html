@@ -1,0 +1,23 @@
+<main class="login-page">
+  <header class="page-header">
+    <span class="logo">DIPcode</span>
+  </header>
+
+  <section class="login-card" aria-labelledby="login-title">
+    <form (submit)="$event.preventDefault()">
+      <div class="field">
+        <label for="login">Логин</label>
+        <input id="login" name="login" type="text" autocomplete="username" placeholder="Введите логин" required>
+      </div>
+      <div class="field">
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Введите пароль" required>
+      </div>
+      <label class="gitlab-option" for="gitlab-login">
+        <input id="gitlab-login" name="gitlabLogin" type="checkbox">
+        <span>Вход в приложение GitLab</span>
+      </label>
+      <button type="submit">Войти</button>
+    </form>
+  </section>
+</main>
