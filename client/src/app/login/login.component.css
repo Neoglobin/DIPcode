@@ -81,7 +81,7 @@ label {
   font-weight: 700;
 }
 
-input {
+input:not([type="checkbox"]) {
   box-sizing: border-box;
   width: 100%;
   height: 48px;
@@ -95,13 +95,30 @@ input {
   font-size: 14px;
 }
 
-input::placeholder {
+input:not([type="checkbox"])::placeholder {
   color: #98a1a5;
 }
 
-input:focus-visible {
+input:not([type="checkbox"]):focus-visible {
   border-color: #ff4a00;
   box-shadow: 0 0 0 3px rgb(255 74 0 / 12%);
+}
+
+.gitlab-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.gitlab-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #ff4a00;
+  cursor: pointer;
 }
 
 button {
