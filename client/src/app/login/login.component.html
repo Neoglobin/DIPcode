@@ -1,0 +1,25 @@
+<main class="login-page">
+  <header class="page-header">
+    <span class="logo">DIPcode</span>
+  </header>
+
+  <section class="login-card" aria-labelledby="login-title">
+    <div class="card-heading">
+      <span class="eyebrow">DIPcode</span>
+      <h1 id="login-title">Вход в систему</h1>
+      <p>Введите свои данные, чтобы продолжить работу.</p>
+    </div>
+
+    <form (submit)="$event.preventDefault()">
+      <div class="field">
+        <label for="login">Логин</label>
+        <input id="login" name="login" type="text" autocomplete="username" placeholder="Введите логин" required>
+      </div>
+      <div class="field">
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Введите пароль" required>
+      </div>
+      <button type="submit">Войти</button>
+    </form>
+  </section>
+</main>
