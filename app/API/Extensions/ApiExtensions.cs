@@ -13,7 +13,7 @@ public static class ApiExtensions
         services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
         var jwtOptions = configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>();
 
-        services.AddAuthentication(options =>
+        services.AddAuthentication(options => 
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -1,4 +1,5 @@
-﻿using APPLICATION.Services;
+﻿using API.Responses;
+using APPLICATION.Services;
 using CORE.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -51,9 +52,9 @@ public class AuthController : ControllerBase
             {
                 return Results.BadRequest($"Operation was not completed. Jwt token is empty");
             }
-
+            
             HttpContext.Response.Cookies.Append("DCSRT", jwt);
-            return Results.Ok();
+            return Results.Ok(new BaseResponse());
         }
         catch (Exception ex)
         {
