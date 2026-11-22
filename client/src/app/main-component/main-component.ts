@@ -24,9 +24,44 @@ export class MainComponent {
   chatResizing = false;
   chatTrackSize: number | null = null;
   selectedPage: ContentPage = 'applications';
+  private pageHistory: ContentPage[] = ['applications'];
+  private historyIndex = 0;
+
+  get canGoBack(): boolean {
+    return this.historyIndex > 0;
+  }
+
+  get canGoForward(): boolean {
+    return this.historyIndex < this.pageHistory.length - 1;
+  }
 
   selectPage(page: ContentPage): void {
+    if (page === this.selectedPage) {
+      return;
+    }
+
+    this.pageHistory = this.pageHistory.slice(0, this.historyIndex + 1);
+    this.pageHistory.push(page);
+    this.historyIndex++;
     this.selectedPage = page;
+  }
+
+  goBack(): void {
+    if (!this.canGoBack) {
+      return;
+    }
+
+    this.historyIndex--;
+    this.selectedPage = this.pageHistory[this.historyIndex];
+  }
+
+  goForward(): void {
+    if (!this.canGoForward) {
+      return;
+    }
+
+    this.historyIndex++;
+    this.selectedPage = this.pageHistory[this.historyIndex];
   }
 
   toggleSidebar(): void {

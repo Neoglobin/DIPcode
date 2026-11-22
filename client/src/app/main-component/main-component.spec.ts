@@ -8,14 +8,30 @@ describe('MainComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
+    const previousButton = compiled.querySelector('[aria-label="Previous"]') as HTMLButtonElement;
+    const nextButton = compiled.querySelector('[aria-label="Next"]') as HTMLButtonElement;
+    expect(previousButton.disabled).toBe(true);
+    expect(nextButton.disabled).toBe(true);
     expect(compiled.querySelectorAll('.application-card').length).toBe(14);
 
     const pageButtons = compiled.querySelectorAll('.sidebar .entry');
     (pageButtons[1] as HTMLButtonElement).click();
     fixture.detectChanges();
 
+    expect(previousButton.disabled).toBe(false);
+    expect(nextButton.disabled).toBe(true);
     expect(compiled.querySelector('.application-grid')).toBeNull();
     expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
+
+    previousButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelectorAll('.application-card').length).toBe(14);
+    expect(previousButton.disabled).toBe(true);
+    expect(nextButton.disabled).toBe(false);
+
+    nextButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.application-grid')).toBeNull();
 
     (pageButtons[0] as HTMLButtonElement).click();
     fixture.detectChanges();
@@ -49,6 +65,13 @@ describe('MainComponent', () => {
     expect(compiled.querySelector('app-users-page')).toBeTruthy();
     expect(compiled.querySelectorAll('.user-card').length).toBe(8);
     expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
+
+    previousButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.page-title')?.textContent?.trim()).toBe('Настройки');
+    nextButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('app-users-page')).toBeTruthy();
 
     (compiled.querySelector('.panel-actions .action-button') as HTMLButtonElement).click();
     fixture.detectChanges();

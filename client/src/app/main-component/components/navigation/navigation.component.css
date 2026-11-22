@@ -35,7 +35,7 @@
 }
 
 .menu-button:hover,
-.arrow-button:hover,
+.arrow-button:not(:disabled):hover,
 .menu-button:focus-visible,
 .arrow-button:focus-visible {
   color: #ff4a00;
@@ -43,7 +43,7 @@
 }
 
 .menu-button:hover svg,
-.arrow-button:hover svg,
+.arrow-button:not(:disabled):hover svg,
 .menu-button:focus-visible svg,
 .arrow-button:focus-visible svg {
   transform: scale(1.1);
@@ -104,6 +104,12 @@
 .arrow-button {
   width: 20px;
   height: 20px;
+}
+
+.arrow-button:disabled {
+  cursor: default;
+  filter: none;
+  opacity: 0.35;
 }
 
 .arrow-button svg {

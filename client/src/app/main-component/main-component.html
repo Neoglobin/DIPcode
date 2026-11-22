@@ -1,7 +1,14 @@
 <main class="frame">
   <div class="toolbar">
     <div class="left-column">
-      <app-navigation [sidebarCollapsed]="sidebarCollapsed" (menuToggle)="toggleSidebar()" />
+      <app-navigation
+        [sidebarCollapsed]="sidebarCollapsed"
+        [canGoBack]="canGoBack"
+        [canGoForward]="canGoForward"
+        (menuToggle)="toggleSidebar()"
+        (previous)="goBack()"
+        (next)="goForward()"
+      />
     </div>
     <app-search />
     <div class="right-controls">
