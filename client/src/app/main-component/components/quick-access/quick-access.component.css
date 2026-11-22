@@ -1,4 +1,6 @@
 :host {
+  position: relative;
+  z-index: 10;
   display: block;
   width: 104px;
   max-width: 104px;
@@ -31,6 +33,41 @@ button:hover,
 button:focus-visible {
   color: #ff4a00;
   filter: drop-shadow(0 0 5px rgb(255 74 0 / 40%));
+}
+
+.profile {
+  position: relative;
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  padding: 6px;
+  border: 1px solid #e5ebee;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(40 52 58 / 14%);
+}
+
+.profile-menu button {
+  display: block;
+  width: 100%;
+  aspect-ratio: auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #30383c;
+  text-align: left;
+  font: 14px Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.profile-menu button:hover,
+.profile-menu button:focus-visible {
+  background: #f4f7f8;
+  color: #e94b20;
+  filter: none;
 }
 
 svg {
