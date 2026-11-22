@@ -50,6 +50,11 @@ import { Component } from '@angular/core';
     .settings-card {
       min-width: 0;
       text-align: center;
+      transition: transform 160ms ease;
+    }
+
+    .settings-card:hover {
+      transform: scale(1.04);
     }
 
     .settings-icon {
@@ -63,13 +68,8 @@ import { Component } from '@angular/core';
       background: #e9edef;
     }
 
-    .settings-icon:hover svg {
-      transform: scale(1.1);
-    }
-
     .settings-icon svg {
       width: 34px;
-      transition: transform 160ms ease;
       height: 34px;
       fill: none;
       stroke: #17191a;
