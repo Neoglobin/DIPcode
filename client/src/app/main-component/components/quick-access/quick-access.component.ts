@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Output, inject } from '@angular/core';
 
 @Component({
   selector: 'app-quick-access',
@@ -7,7 +7,13 @@ import { Component, ElementRef, HostListener, inject } from '@angular/core';
 })
 export class QuickAccessComponent {
   private readonly element = inject(ElementRef<HTMLElement>);
+  @Output() settingsSelected = new EventEmitter<void>();
   profileMenuOpen = false;
+
+  openSettings(): void {
+    this.profileMenuOpen = false;
+    this.settingsSelected.emit();
+  }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {

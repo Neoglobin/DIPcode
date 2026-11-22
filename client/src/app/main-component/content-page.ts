@@ -1,1 +1,1 @@
-export type ContentPage = 'applications' | 'projects';
+export type ContentPage = 'applications' | 'projects' | 'settings';

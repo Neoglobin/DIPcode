@@ -34,5 +34,13 @@ describe('MainComponent', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('.sidebar')?.classList.contains('is-collapsed')).toBe(false);
     expect(compiled.querySelector('.workspace')?.classList.contains('sidebar-collapsed')).toBe(false);
+
+    (compiled.querySelector('[aria-label="Профиль"]') as HTMLButtonElement).click();
+    fixture.detectChanges();
+    (compiled.querySelector('#profile-menu button') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('.page-title')?.textContent?.trim()).toBe('Настройки');
+    expect(compiled.querySelectorAll('.settings-card').length).toBe(2);
   });
 });
