@@ -15,10 +15,12 @@ namespace API.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
+    private readonly IRoleModelService _roleModelService;
     
-    public AuthController(IAuthService authService)
+    public AuthController(IAuthService authService, IRoleModelService roleModelService)
     {
         _authService = authService;
+        _roleModelService = roleModelService;
     }
     
     [HttpPost("register")]
@@ -26,12 +28,8 @@ public class AuthController : ControllerBase
     {
         try
         {
-            bool result = await _authService.Register(request.Name, request.Email, request.Password);
-
-            if (!result)
-            {
-                return Results.BadRequest("Operation was not completed");
-            }
+            var newUser = await _authService.Register(request.Name, request.Email, request.Password);
+            await _roleModelService.AddUserRole(newUser, request.UserRoleId);
             
             return Results.Ok();
         }

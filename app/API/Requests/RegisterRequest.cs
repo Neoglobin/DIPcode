@@ -3,4 +3,5 @@
 public record RegisterRequest(
     string Name,
     string Email,
-    string Password);
+    string Password,
+    Guid UserRoleId);

@@ -22,6 +22,35 @@ namespace DB.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("CORE.Entities.GitApplication", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ApplicationId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Secret")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GitApplication");
+                });
+
             modelBuilder.Entity("CORE.Entities.Project", b =>
                 {
                     b.Property<Guid>("Id")
@@ -79,6 +108,42 @@ namespace DB.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("CORE.Entities.UserRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserRole");
+                });
+
+            modelBuilder.Entity("UserInGitApplication", b =>
+                {
+                    b.Property<Guid>("GitApplicationId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("GitApplicationId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserInGitApplication");
+                });
+
             modelBuilder.Entity("UserInProject", b =>
                 {
                     b.Property<Guid>("ProjectId")
@@ -94,6 +159,36 @@ namespace DB.Migrations
                     b.ToTable("UserInProject");
                 });
 
+            modelBuilder.Entity("UserInRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserRoleId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("UserId", "UserRoleId");
+
+                    b.HasIndex("UserRoleId");
+
+                    b.ToTable("UserInRole");
+                });
+
+            modelBuilder.Entity("UserInGitApplication", b =>
+                {
+                    b.HasOne("CORE.Entities.GitApplication", null)
+                        .WithMany()
+                        .HasForeignKey("GitApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CORE.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("UserInProject", b =>
                 {
                     b.HasOne("CORE.Entities.Project", null)
@@ -105,6 +200,21 @@ namespace DB.Migrations
                     b.HasOne("CORE.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("UserInRole", b =>
+                {
+                    b.HasOne("CORE.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CORE.Entities.UserRole", null)
+                        .WithMany()
+                        .HasForeignKey("UserRoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

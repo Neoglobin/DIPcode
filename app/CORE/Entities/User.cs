@@ -9,4 +9,8 @@ public class User : BaseEntity
     public bool IsActive { get; set; } = false;
 
     public List<Project> Project { get; set; } = [];
+
+    public List<UserRole> UserRole { get; set; } = [];
+
+    public List<GitApplication> GitApplication { get; set; } = [];
 }

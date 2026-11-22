@@ -8,6 +8,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<User> User { get; set; }
     
     public DbSet<Project> Project { get; set; }
+    
+    public DbSet<GitApplication> GitApplication { get; set; }
+    
+    public DbSet<UserRole> UserRole { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -27,7 +27,7 @@ public class AuthService : IAuthService
     }
 
     #region Methods: Public
-
+    
     /// <summary>
     /// Base register method
     /// </summary>
@@ -35,7 +35,7 @@ public class AuthService : IAuthService
     /// <param name="email"> User email </param>
     /// <param name="password"> User password </param>
     /// <returns> Operation code </returns>
-    public async Task<bool> Register(string name, string email, string password)
+    public async Task<User> Register(string name, string email, string password)
     {
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
@@ -70,7 +70,10 @@ public class AuthService : IAuthService
         newUser.IsActive = true;
 
         await _dbContext.AddAsync(newUser);
-        return await _dbContext.SaveChangesAsync() > 0;
+        if (await _dbContext.SaveChangesAsync() == 0)
+            throw new Exception("New user wasn't saved");
+        
+        return newUser;
     }
 
     /// <summary>
