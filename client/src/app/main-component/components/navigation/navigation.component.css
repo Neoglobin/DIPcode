@@ -42,6 +42,13 @@
   filter: drop-shadow(0 0 4px rgb(255 74 0 / 55%));
 }
 
+.menu-button:hover svg,
+.arrow-button:hover svg,
+.menu-button:focus-visible svg,
+.arrow-button:focus-visible svg {
+  transform: scale(1.1);
+}
+
 .menu-button {
   width: 22px;
   height: 22px;
@@ -49,6 +56,7 @@
 
 .menu-button svg {
   width: 22px;
+  transition: transform 160ms ease;
   height: 17px;
   fill: none;
   stroke: currentColor;
@@ -100,6 +108,7 @@
 
 .arrow-button svg {
   width: 20px;
+  transition: transform 160ms ease;
   height: 20px;
   fill: none;
   stroke: currentColor;

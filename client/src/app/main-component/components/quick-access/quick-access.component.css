@@ -70,8 +70,14 @@ button:focus-visible {
   filter: none;
 }
 
+button:hover svg,
+button:focus-visible svg {
+  transform: scale(1.1);
+}
+
 svg {
   width: 50%;
+  transition: transform 160ms ease;
   height: 50%;
   fill: none;
   stroke: currentColor;

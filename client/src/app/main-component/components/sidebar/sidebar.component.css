@@ -62,8 +62,14 @@
   font: 700 13px Arial, sans-serif;
 }
 
+.entry:hover svg,
+.entry:focus-visible svg {
+  transform: scale(1.1);
+}
+
 .entry svg {
   flex: 0 0 34px;
+  transition: transform 160ms ease;
   width: 34px;
   height: 34px;
   fill: none;
