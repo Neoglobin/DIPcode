@@ -55,6 +55,15 @@ button:focus-visible {
   box-shadow: 0 0 8px rgb(255 74 0 / 18%);
 }
 
+button:hover svg,
+button:focus-visible svg {
+  transform: scale(1.1);
+}
+
+button svg {
+  transition: transform 160ms ease;
+}
+
 .plus {
   width: 16px;
   height: 16px;

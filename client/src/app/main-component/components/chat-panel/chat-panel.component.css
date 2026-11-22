@@ -141,8 +141,17 @@
   background: #eef1f2;
 }
 
+.collapse-button:hover svg,
+.collapse-button:focus-visible svg,
+.message-icon:hover svg,
+.message-composer button:hover svg,
+.message-composer button:focus-visible svg {
+  transform: scale(1.1);
+}
+
 .collapse-button svg {
   width: 20px;
+  transition: transform 160ms ease;
   height: 20px;
   fill: none;
   stroke: currentColor;
@@ -181,6 +190,7 @@
 
 .message-icon svg {
   width: 22px;
+  transition: transform 160ms ease;
   height: 22px;
   fill: none;
   stroke: #171a1c;
@@ -235,6 +245,7 @@
 
 .message-composer button svg {
   width: 21px;
+  transition: transform 160ms ease;
   height: 21px;
   fill: none;
   stroke: currentColor;

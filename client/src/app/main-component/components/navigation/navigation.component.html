@@ -13,12 +13,12 @@
   </div>
 
   <div class="arrows">
-    <button class="arrow-button" type="button" aria-label="Previous">
+    <button class="arrow-button" type="button" aria-label="Previous" [disabled]="!canGoBack" (click)="previous.emit()">
       <svg viewBox="0 0 30 30" aria-hidden="true">
         <path d="M25 15H5m0 0 10-10M5 15l10 10" />
       </svg>
     </button>
-    <button class="arrow-button" type="button" aria-label="Next">
+    <button class="arrow-button" type="button" aria-label="Next" [disabled]="!canGoForward" (click)="next.emit()">
       <svg viewBox="0 0 30 30" aria-hidden="true">
         <path d="M5 15h20m0 0L15 5m10 10L15 25" />
       </svg>

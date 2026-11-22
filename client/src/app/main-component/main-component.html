@@ -1,12 +1,19 @@
 <main class="frame">
   <div class="toolbar">
     <div class="left-column">
-      <app-navigation [sidebarCollapsed]="sidebarCollapsed" (menuToggle)="toggleSidebar()" />
+      <app-navigation
+        [sidebarCollapsed]="sidebarCollapsed"
+        [canGoBack]="canGoBack"
+        [canGoForward]="canGoForward"
+        (menuToggle)="toggleSidebar()"
+        (previous)="goBack()"
+        (next)="goForward()"
+      />
     </div>
     <app-search />
     <div class="right-controls">
       <app-chat-selector />
-      <app-quick-access />
+      <app-quick-access (settingsSelected)="selectPage('settings')" />
     </div>
   </div>
   <div class="workspace" [class.sidebar-collapsed]="sidebarCollapsed" [class.chat-collapsed]="chatCollapsed" [class.chat-resizing]="chatResizing" [style.--chat-track-size]="chatTrackSize === null ? null : chatTrackSize + 'px'">
@@ -22,6 +29,12 @@
         }
         @case ('projects') {
           <app-projects-page />
+        }
+        @case ('settings') {
+          <app-settings-page (usersSelected)="selectPage('users')" />
+        }
+        @case ('users') {
+          <app-users-page />
         }
       }
     </app-central-panel>

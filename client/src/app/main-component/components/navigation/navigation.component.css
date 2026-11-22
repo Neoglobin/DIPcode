@@ -35,11 +35,18 @@
 }
 
 .menu-button:hover,
-.arrow-button:hover,
+.arrow-button:not(:disabled):hover,
 .menu-button:focus-visible,
 .arrow-button:focus-visible {
   color: #ff4a00;
   filter: drop-shadow(0 0 4px rgb(255 74 0 / 55%));
+}
+
+.menu-button:hover svg,
+.arrow-button:not(:disabled):hover svg,
+.menu-button:focus-visible svg,
+.arrow-button:focus-visible svg {
+  transform: scale(1.1);
 }
 
 .menu-button {
@@ -49,6 +56,7 @@
 
 .menu-button svg {
   width: 22px;
+  transition: transform 160ms ease;
   height: 17px;
   fill: none;
   stroke: currentColor;
@@ -98,8 +106,15 @@
   height: 20px;
 }
 
+.arrow-button:disabled {
+  cursor: default;
+  filter: none;
+  opacity: 0.35;
+}
+
 .arrow-button svg {
   width: 20px;
+  transition: transform 160ms ease;
   height: 20px;
   fill: none;
   stroke: currentColor;

@@ -8,4 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class NavigationComponent {
   @Input() sidebarCollapsed = false;
   @Output() menuToggle = new EventEmitter<void>();
+  @Input() canGoBack = false;
+  @Input() canGoForward = false;
+  @Output() previous = new EventEmitter<void>();
+  @Output() next = new EventEmitter<void>();
 }

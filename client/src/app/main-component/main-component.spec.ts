@@ -8,14 +8,30 @@ describe('MainComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
+    const previousButton = compiled.querySelector('[aria-label="Previous"]') as HTMLButtonElement;
+    const nextButton = compiled.querySelector('[aria-label="Next"]') as HTMLButtonElement;
+    expect(previousButton.disabled).toBe(true);
+    expect(nextButton.disabled).toBe(true);
     expect(compiled.querySelectorAll('.application-card').length).toBe(14);
 
     const pageButtons = compiled.querySelectorAll('.sidebar .entry');
     (pageButtons[1] as HTMLButtonElement).click();
     fixture.detectChanges();
 
+    expect(previousButton.disabled).toBe(false);
+    expect(nextButton.disabled).toBe(true);
     expect(compiled.querySelector('.application-grid')).toBeNull();
     expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
+
+    previousButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelectorAll('.application-card').length).toBe(14);
+    expect(previousButton.disabled).toBe(true);
+    expect(nextButton.disabled).toBe(false);
+
+    nextButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.application-grid')).toBeNull();
 
     (pageButtons[0] as HTMLButtonElement).click();
     fixture.detectChanges();
@@ -34,5 +50,47 @@ describe('MainComponent', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('.sidebar')?.classList.contains('is-collapsed')).toBe(false);
     expect(compiled.querySelector('.workspace')?.classList.contains('sidebar-collapsed')).toBe(false);
+
+    (compiled.querySelector('[aria-label="Профиль"]') as HTMLButtonElement).click();
+    fixture.detectChanges();
+    (compiled.querySelector('#profile-menu button') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('.page-title')?.textContent?.trim()).toBe('Настройки');
+    expect(compiled.querySelectorAll('.settings-card').length).toBe(2);
+
+    (compiled.querySelector('button.settings-card') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('app-users-page')).toBeTruthy();
+    expect(compiled.querySelectorAll('.user-card').length).toBe(8);
+    expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
+
+    previousButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.page-title')?.textContent?.trim()).toBe('Настройки');
+    nextButton.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('app-users-page')).toBeTruthy();
+
+    (compiled.querySelector('.panel-actions .action-button') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('input[name="name"]')).toBeTruthy();
+    expect(compiled.querySelector('input[name="email"]')?.getAttribute('type')).toBe('email');
+    expect(compiled.querySelector('input[name="password"]')?.getAttribute('type')).toBe('password');
+    expect(Array.from(compiled.querySelectorAll('select[name="role"] option')).map(option => option.textContent?.trim()))
+      .toEqual(['Администратор', 'Пользователь']);
+
+    (compiled.querySelector('input[name="name"]') as HTMLInputElement).value = 'Новый пользователь';
+    (compiled.querySelector('input[name="email"]') as HTMLInputElement).value = 'user@example.com';
+    (compiled.querySelector('.user-form form') as HTMLFormElement).dispatchEvent(
+      new Event('submit', { bubbles: true, cancelable: true })
+    );
+    fixture.detectChanges();
+
+    expect(compiled.querySelectorAll('.user-card').length).toBe(9);
+    expect(compiled.querySelector('.user-card:last-child .user-name')?.textContent?.trim())
+      .toBe('Новый пользователь');
   });
 });
