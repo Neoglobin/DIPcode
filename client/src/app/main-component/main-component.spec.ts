@@ -49,5 +49,25 @@ describe('MainComponent', () => {
     expect(compiled.querySelector('app-users-page')).toBeTruthy();
     expect(compiled.querySelectorAll('.user-card').length).toBe(8);
     expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
+
+    (compiled.querySelector('.panel-actions .action-button') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('input[name="name"]')).toBeTruthy();
+    expect(compiled.querySelector('input[name="email"]')?.getAttribute('type')).toBe('email');
+    expect(compiled.querySelector('input[name="password"]')?.getAttribute('type')).toBe('password');
+    expect(Array.from(compiled.querySelectorAll('select[name="role"] option')).map(option => option.textContent?.trim()))
+      .toEqual(['Администратор', 'Пользователь']);
+
+    (compiled.querySelector('input[name="name"]') as HTMLInputElement).value = 'Новый пользователь';
+    (compiled.querySelector('input[name="email"]') as HTMLInputElement).value = 'user@example.com';
+    (compiled.querySelector('.user-form form') as HTMLFormElement).dispatchEvent(
+      new Event('submit', { bubbles: true, cancelable: true })
+    );
+    fixture.detectChanges();
+
+    expect(compiled.querySelectorAll('.user-card').length).toBe(9);
+    expect(compiled.querySelector('.user-card:last-child .user-name')?.textContent?.trim())
+      .toBe('Новый пользователь');
   });
 });

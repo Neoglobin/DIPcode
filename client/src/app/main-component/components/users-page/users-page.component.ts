@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 interface UserItem {
   id: number;
   name: string;
+  email?: string;
+  role?: string;
 }
 
 @Component({
@@ -11,6 +13,9 @@ interface UserItem {
   styleUrl: './users-page.component.css'
 })
 export class UsersPageComponent {
+  isAddingUser = false;
+  readonly roles = ['Администратор', 'Пользователь'];
+
   readonly users: UserItem[] = [
     { id: 1, name: 'Пользователь 1' },
     { id: 2, name: 'Пользователь 2' },
@@ -21,4 +26,18 @@ export class UsersPageComponent {
     { id: 7, name: 'Пользователь 7' },
     { id: 8, name: 'Пользователь 8' }
   ];
+
+  openUserForm(): void {
+    this.isAddingUser = true;
+  }
+
+  cancelUserForm(): void {
+    this.isAddingUser = false;
+  }
+
+  saveUser(event: SubmitEvent, name: string, email: string, role: string): void {
+    event.preventDefault();
+    this.users.push({ id: this.users.length + 1, name, email, role });
+    this.isAddingUser = false;
+  }
 }
