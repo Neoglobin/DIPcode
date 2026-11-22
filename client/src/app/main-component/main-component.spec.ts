@@ -42,5 +42,12 @@ describe('MainComponent', () => {
 
     expect(compiled.querySelector('.page-title')?.textContent?.trim()).toBe('Настройки');
     expect(compiled.querySelectorAll('.settings-card').length).toBe(2);
+
+    (compiled.querySelector('button.settings-card') as HTMLButtonElement).click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('app-users-page')).toBeTruthy();
+    expect(compiled.querySelectorAll('.user-card').length).toBe(8);
+    expect(compiled.querySelectorAll('.panel-actions button').length).toBe(2);
   });
 });

@@ -24,7 +24,10 @@
           <app-projects-page />
         }
         @case ('settings') {
-          <app-settings-page />
+          <app-settings-page (usersSelected)="selectPage('users')" />
+        }
+        @case ('users') {
+          <app-users-page />
         }
       }
     </app-central-panel>

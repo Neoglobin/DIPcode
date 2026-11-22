@@ -5,6 +5,7 @@ import { ApplicationsPageComponent } from './components/applications-page/applic
 import { CentralPanelComponent } from './components/central-panel/central-panel.component';
 import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { UsersPageComponent } from './components/users-page/users-page.component';
 import type { ContentPage } from './content-page';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { QuickAccessComponent } from './components/quick-access/quick-access.component';
@@ -13,7 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main-component',
-  imports: [ApplicationsPageComponent, ChatSelectorComponent, ChatPanelComponent, CentralPanelComponent, NavigationComponent, ProjectsPageComponent, QuickAccessComponent, SearchComponent, SettingsPageComponent, SidebarComponent],
+  imports: [ApplicationsPageComponent, ChatSelectorComponent, ChatPanelComponent, CentralPanelComponent, NavigationComponent, ProjectsPageComponent, QuickAccessComponent, SearchComponent, SettingsPageComponent, SidebarComponent, UsersPageComponent],
   templateUrl: './main-component.html',
   styleUrl: './main-component.css'
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-settings-page',
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
         </div>
         <span class="settings-name">Настройки профиля</span>
       </article>
-      <article class="settings-card">
+      <button type="button" class="settings-card" (click)="usersSelected.emit()">
         <div class="settings-icon">
           <svg viewBox="0 0 40 40" aria-hidden="true">
             <path d="m20 4 13 7.5v17L20 36 7 28.5v-17L20 4Z" />
@@ -24,7 +24,7 @@ import { Component } from '@angular/core';
           </svg>
         </div>
         <span class="settings-name">Управление пользователями</span>
-      </article>
+      </button>
     </div>
   `,
   styles: [`
@@ -48,7 +48,13 @@ import { Component } from '@angular/core';
     }
 
     .settings-card {
+      display: block;
       min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
       text-align: center;
       transition: transform 160ms ease;
     }
@@ -87,4 +93,6 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class SettingsPageComponent {}
+export class SettingsPageComponent {
+  @Output() usersSelected = new EventEmitter<void>();
+}
