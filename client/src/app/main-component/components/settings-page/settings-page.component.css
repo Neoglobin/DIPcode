@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.page-title {
+  margin: 6px 0 20px;
+  color: #111;
+  font: 700 14px Arial, sans-serif;
+  text-align: center;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 94px);
+  column-gap: 20px;
+  row-gap: 40px;
+}
+
+.settings-card {
+  display: block;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 160ms ease;
+}
+
+.settings-card:hover {
+  transform: scale(1.04);
+}
+
+.settings-icon {
+  display: grid;
+  width: 94px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 8px;
+  place-items: center;
+  border-radius: 20px;
+  background: #e9edef;
+}
+
+.settings-icon svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #17191a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.8;
+}
+
+.settings-name {
+  display: block;
+  color: #111;
+  font: 700 12px Arial, sans-serif;
+  line-height: 14px;
+  overflow-wrap: anywhere;
+}
