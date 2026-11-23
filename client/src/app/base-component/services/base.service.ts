@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export interface BaseResponse {
+  isSuccess?: boolean,
+  errorMessage?: string,
+  status?: number,
+  result?: any
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class BaseService {
 
   private readonly _appRootUrl: string = "https://localhost:7070/";
 

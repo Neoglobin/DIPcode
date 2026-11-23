@@ -1,7 +1,6 @@
 using API.Extensions;
 using APPLICATION.Services;
 using CORE.Interfaces;
-using CORE.Options;
 using DB;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +16,8 @@ services.AddSwaggerGen();
 services.AddApiAuthentication(configuration);
 
 services.AddScoped<IAuthService, AuthService>();
+services.AddScoped<IRoleModelService, RoleModelService>();
+services.AddScoped<IUserService, UserService>();
 
 services.AddDbContext<AppDbContext>(options =>
 {

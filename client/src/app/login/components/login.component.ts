@@ -30,16 +30,20 @@ export class LoginComponent
     this._loginService.login(request).subscribe({
       next: (response) => 
       {
-        if (response && response.success) 
+        if (response && response.isSuccess) 
         {
           console.log("User authorized successfuly");
           this._router.navigate(["/"]);
+          return;
         }
-      },
-      error: (error) => 
-      {
-        alert("Authorization failed: " + error.error);
-        console.log("Authorization failed: " + error.error);
+
+        if (response && !response.isSuccess) 
+        {
+          console.log(response.errorMessage);
+          alert(response.errorMessage);
+        }
+
+        console.log("Unhandled exception: " + response);
       }
     });
   }

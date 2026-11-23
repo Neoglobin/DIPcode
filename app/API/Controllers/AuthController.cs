@@ -24,23 +24,23 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost("register")]
-    public async Task<IResult> Register(RegisterRequest request)
+    public async Task<BaseResponse> Register(RegisterRequest request)
     {
         try
         {
             var newUser = await _authService.Register(request.Name, request.Email, request.Password);
             await _roleModelService.AddUserRole(newUser, request.UserRoleId);
             
-            return Results.Ok();
+            return BaseResponse.Success();
         }
         catch (Exception ex)
         {
-            return Results.BadRequest(ex.Message);
+            return BaseResponse.Error(ex.Message);
         }
     }
 
     [HttpPost("login")]
-    public async Task<IResult> Login(LoginRequest request)
+    public async Task<BaseResponse> Login(LoginRequest request)
     {
         try
         {
@@ -48,15 +48,15 @@ public class AuthController : ControllerBase
             
             if (string.IsNullOrEmpty(jwt))
             {
-                return Results.BadRequest($"Operation was not completed. Jwt token is empty");
+                return BaseResponse.Error($"Operation was not completed. Jwt token is empty");
             }
             
             HttpContext.Response.Cookies.Append("DCSRT", jwt);
-            return Results.Ok(new BaseResponse());
+            return BaseResponse.Success();
         }
         catch (Exception ex)
         {
-            return Results.BadRequest(ex.Message);
+            return BaseResponse.Error(ex.Message);
         }
     }
     
