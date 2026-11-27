@@ -1,4 +1,5 @@
-﻿using API.Responses;
+﻿using API.Requests;
+using API.Responses;
 using CORE.Entities;
 using CORE.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -20,8 +21,8 @@ public class RightsController : ControllerBase
     }
     
     [Authorize]
-    [HttpGet("checkRoleEntry")]
-    public async Task<BaseResponse> CheckUserRoleEntry(Guid roleId)
+    [HttpPost("checkRoleEntry")]
+    public async Task<BaseResponse> CheckUserRoleEntry(CheckUserRoleRequest request)
     {
         try
         {
@@ -30,7 +31,7 @@ public class RightsController : ControllerBase
             if (userId == Guid.Empty)
                 return BaseResponse.Error("Role Id is empty");
 
-            return BaseResponse<bool>.Success(await _roleModelService.CheckUserRoleEntry(userId, roleId));
+            return BaseResponse<bool>.Success(await _roleModelService.CheckUserRoleEntry(userId, request.RoleId));
         }
         catch (Exception ex)
         {
